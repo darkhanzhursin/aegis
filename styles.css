@@ -1,49 +1,205 @@
 /* styles.css */
-/* Содержимое CSS файла */
-body {
-    font-family: Arial, sans-serif;
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+}
+
+/* Basic HTML Elements */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
 .container {
     width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
 }
+
+/* Header and Footer */
 header, footer {
-    background: #2c3e50;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: white;
     padding: 20px 0;
     text-align: center;
 }
+
+/* Navigation */
 nav ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-nav ul li a {
-    color: #fff;
+
+nav a {
+    color: white;
     text-decoration: none;
+    font-weight: 500;
 }
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* Hero Section */
 .hero {
-    background: #3498db;
+    background-color: var(--secondary-color);
     color: white;
     padding: 60px 0;
     text-align: center;
 }
-.hero .btn {
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Button Styles */
+.btn {
     display: inline-block;
-    margin-top: 20px;
     padding: 10px 20px;
-    background: #2c3e50;
+    background-color: var(--primary-color);
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
-.about, .services, .contact {
+
+.btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Main Sections */
+section {
     padding: 40px 0;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
     text-align: center;
+}
+
+/* Services Section */
+.services ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.services li {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: var(--background-color);
+    border-radius: 5px;
+}
+
+/* FAQ Section */
+.faq {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.faq dl {
+    margin: 0;
+    padding: 0;
+}
+
+.faq dt {
+    font-weight: bold;
+    color: var(--primary-color);
+    padding: 15px;
+    background-color: white;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 1px;
+    position: relative;
+}
+
+.faq dt::before {
+    content: "❓";
+    position: absolute;
+    left: 1px;
+    color: var(--secondary-color);
+}
+
+.faq dd {
+    padding: 15px;
+    background-color: var(--background-color);
+    border-radius: 0 0 5px 5px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.faq dt:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+/* Contact Section */
+.contact p {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.contact a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.contact a:hover {
+    color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    :root {
+        --primary-color: #000;
+        --secondary-color: #444;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        display: none;
+    }
 }
